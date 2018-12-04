@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <img id="loadheader" src="./assets/images/logo.gif">
+  <a class="navbar-brand" href="#">GamingApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="isAuth()">
+        <a class="nav-link" routerLink="/">Inicio</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" *ngIf="isAuth()">
+        <a class="nav-link" routerLink="/juegos">Juegos</a>
+      </li>
+      <li class="nav-item" *ngIf="!isAuth()">
+        <button class="btn btn-primary float-md-right" routerLink="/iniciosesion">Inicie sesión</button>
+      </li>
+      <li class="nav-item" *ngIf="isAuth()"> 
+        <button id="btnLogout" class="btn btn-primary float-md-right" (click)="onLogout()">Cerrar sesión</button>
+      </li>
+    </ul>
+  </div>
+</nav>

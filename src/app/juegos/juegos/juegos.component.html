@@ -1,0 +1,48 @@
+<h3>Listado de Juegos</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addjueg">Añadir nuevo juego</a>
+<br>
+<form class="form-inline">
+    <input class="form-control" name="searchInput" placeholder="Buscar..." #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+    <button class="btn btn-outline-primary" (click)="searchText=''">X</button>
+  </form>
+<table class="table table-bordered table-striped tabla" style="margin-top:
+  40px;">
+  <thead>
+    <tr class="filters">
+      <th>Nombre</th>
+      <th>Fecha de salida</th>
+      <th>Descripción</th>
+      <th>Puntuación</th>
+      <th>Dificultad</th>
+      <th>Desarrolladora</th>
+      <th>Tráiler</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <ng-container *ngFor="let juego of juegoArray; let i = index" >
+  <tbody>
+    <tr *ngIf="filterCondition(juego)">
+      <td>{{ juego.nombre }}</td>
+      <td>{{ juego.fecha }}</td>
+      <td>{{ juego.descripcion }}</td>
+      <td>{{ juego.puntuacion }}</td>
+      <td>{{ juego.dificultad }}</td>
+      <td>{{ juego.desarrolladora }}</td>
+      <td>
+        <a type="button" class="btn btn-primary" href="{{juego.trailer}}"><i style="font-size:20px" class="fa fa-youtube-play"></i></a>
+      </td>
+      <td>
+        <button type="button" class="btn btn-success" routerLink="/editjueg/{{ juego.$key }}" (click)="juegosService.populateForm(juego)"><i class="material-icons">mode_edit</i></button>
+      </td>
+      <td>
+        <button id="btnDelete{{i}}" class="btn btn-danger"
+        (click)="onDelete(juego.$key)"><i class="material-icons">delete</i></button>
+      </td>
+    </tr>
+  </tbody>
+</ng-container>
+</table>
+<div class="alert alert-danger" *ngIf="showDeletedMessage">
+    Juego borrado correctamente.
+  </div>

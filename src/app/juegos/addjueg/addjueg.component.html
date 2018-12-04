@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset 2">
+    <h2>Añadir nuevo juego</h2>
+    <button class="btn btn-success float-md-right" (click)="clearField()">Limpiar campos</button>
+    <a class="btn btn-primary float-md-right" routerLink="/juegos">Regresar al listado</a>
+    <br>
+    <form [formGroup]="this.juegoService.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key">
+      <div class="form-group">
+        <label>Nombre</label>
+        <i class="fa fa-check-circle check" *ngIf="this.juegoService.form.controls.nombre.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="this.juegoService.form.controls.nombre.invalid &&
+        this.juegoService.form.controls.nombre.touched"></i>
+        <input formControlName="nombre" class="form-control">
+        <p class="alert alert-danger" *ngIf="this.juegoService.form.controls.nombre.invalid &&
+        this.juegoService.form.controls.nombre.touched">
+          El campo Nombre es obligatorio.
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <i class="fa fa-check-circle check" *ngIf="this.juegoService.form.controls.fecha.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="this.juegoService.form.controls.fecha.invalid &&
+        this.juegoService.form.controls.fecha.touched"></i>
+        <input type="date" class="form-control" id="fecha" formControlName="fecha">
+        <p class="alert alert-danger" *ngIf="this.juegoService.form.controls.fecha.invalid &&
+        this.juegoService.form.controls.fecha.touched">
+          El campo Fecha es obligatorio.
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <i class="fa fa-check-circle check" *ngIf="this.juegoService.form.controls.descripcion.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="this.juegoService.form.controls.descripcion.invalid &&
+        this.juegoService.form.controls.descripcion.touched"></i>
+        <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+        <p class="alert alert-danger" *ngIf="this.juegoService.form.controls.descripcion.invalid &&
+        this.juegoService.form.controls.descripcion.touched">
+          El campo Descripción es obligatorio.
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="puntuacion">Puntuación</label>
+        <i class="fa fa-check-circle check" *ngIf="this.juegoService.form.controls.puntuacion.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="this.juegoService.form.controls.puntuacion.invalid &&
+        this.juegoService.form.controls.puntuacion.touched"></i>
+        <input type="number" class="form-control" id="puntuacion" formControlName="puntuacion">
+        <p class="alert alert-danger" *ngIf="this.juegoService.form.controls.puntuacion.invalid &&
+        this.juegoService.form.controls.puntuacion.touched">
+          La Puntuación debe de ser entre 1 y 10.
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="dificultad">Dificultad</label>
+        <i class="fa fa-check-circle check" *ngIf="this.juegoService.form.controls.dificultad.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="this.juegoService.form.controls.dificultad.invalid &&
+        this.juegoService.form.controls.dificultad.touched"></i>
+        <select class="form-control" id="dificultad" formControlName="dificultad">
+          <option value="">Seleccione...</option>
+          <option value="Fácil">Fácil</option>
+          <option value="Media">Media</option>
+          <option value="Difícil">Difícil</option>
+        </select>
+        <p class="alert alert-danger" *ngIf="this.juegoService.form.controls.dificultad.invalid &&
+        this.juegoService.form.controls.dificultad.touched">
+          El campo Dificultad es obligatorio.
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="desarrolladora">Desarrolladora</label>
+        <i class="fa fa-check-circle check" *ngIf="this.juegoService.form.controls.desarrolladora.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="this.juegoService.form.controls.desarrolladora.invalid &&
+        this.juegoService.form.controls.desarrolladora.touched"></i>
+        <input type="text" class="form-control" id="desarrolladora" formControlName="desarrolladora">
+        <p class="alert alert-danger" *ngIf="this.juegoService.form.controls.desarrolladora.invalid &&
+        this.juegoService.form.controls.desarrolladora.touched">
+          El campo Desarrolladora es obligatorio.
+        </p>
+      </div>
+      <div class="form-group">
+        <label for="trailer">Tráiler</label>
+        <i class="fa fa-check-circle check" *ngIf="this.juegoService.form.controls.trailer.valid"></i>
+        <i class="fa fa-exclamation-circle uncheck" *ngIf="this.juegoService.form.controls.trailer.invalid &&
+        this.juegoService.form.controls.trailer.touched"></i>
+        <input type="text" class="form-control" id="trailer" formControlName="trailer">
+        <p class="alert alert-danger" *ngIf="this.juegoService.form.controls.trailer.invalid &&
+        this.juegoService.form.controls.trailer.touched">
+          El campo Trailer es obligatorio.
+        </p>
+      </div>
+      <button id="btnAdd" class="btn btn-primary" type="submit" [disabled]="!this.juegoService.form.valid">Añadir Juego</button>
+      <a class="btn btn-danger" routerLink="/juegos">Cancelar</a>
+      <p class="alert alert-danger" *ngIf="!this.juegoService.form.valid">
+        Por favor complete todos los campos
+      </p>
+    </form>
+  </div>
+</div>
