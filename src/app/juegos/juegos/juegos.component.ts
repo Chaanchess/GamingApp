@@ -11,11 +11,13 @@ export class JuegosComponent implements OnInit {
   juegoArray = [];
   showDeletedMessage: boolean;
   searchText: string = "";
+  public cargando:Boolean=false;
   constructor(private juegosService: JuegosService) {
 
   }
 
   ngOnInit() {
+    this.cargando=true;
     this.juegosService.getJuegos().subscribe(
       list => {
         this.juegoArray = list.map(item => {
@@ -24,6 +26,7 @@ export class JuegosComponent implements OnInit {
             ...item.payload.val()
           };
         });
+        this.cargando=false;
       });
   }
 

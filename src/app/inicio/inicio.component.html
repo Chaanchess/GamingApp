@@ -1,1 +1,36 @@
-<h2>Bienvenido a nuestra aplicación Gaming App</h2>
+<h2>Bienvenido a GamingApp</h2>
+<br>
+<div class="card text-center">
+    <div class="card-header">
+      ¿Quieres ver tus juegos favoritos?
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Guárdalos como quieras</h4>
+      <p class="card-text">Con esta aplicación podrás guardar todos tus juegos favoritos y ver su información cuando quieras.</p>
+      <a class="nav-item" *ngIf="isAuth()" routerLink="/juegos" class="btn btn-primary">Ver lista de juegos</a>
+      <a class="nav-item" *ngIf="!isAuth()" routerLink="/iniciosesion" class="btn btn-primary">Iniciar sesión</a>
+    </div>
+    <div class="card-footer text-muted">
+      GamingApp
+    </div>
+  </div>
+
+<footer id="footerInicio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 py-5">
+        <div class="mb-5 flex-center">
+          <a class="fb-ic" href="https://www.facebook.com/fran.romero.549">
+            <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <a class="tw-ic" href="http://www.twitter.com/privateChanches">
+            <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <a class="ins-ic" href="http://www.instagram.com/chaanchess">
+            <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

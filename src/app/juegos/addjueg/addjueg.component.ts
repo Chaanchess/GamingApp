@@ -12,6 +12,7 @@ export class AddjuegComponent implements OnInit {
   submitted: boolean;
   showSuccessMessage: boolean;
   formControls = this.juegoService.form.controls;
+  public enviado:Boolean=false;
   constructor(private juegoService: JuegosService) { }
 
   ngOnInit() {
@@ -37,6 +38,10 @@ export class AddjuegComponent implements OnInit {
         desarrolladora: '',
         trailer: ''
       });
+      this.enviado=true;
+      setTimeout(() => {
+        this.enviado = false
+      }, 2000);
     }
   }
 

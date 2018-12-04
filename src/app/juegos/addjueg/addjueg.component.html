@@ -90,6 +90,9 @@
       </div>
       <button id="btnAdd" class="btn btn-primary" type="submit" [disabled]="!this.juegoService.form.valid">Añadir Juego</button>
       <a class="btn btn-danger" routerLink="/juegos">Cancelar</a>
+      <p class="alert alert-success" *ngIf="enviado">
+        Juego registrado correctamente.
+      </p>
       <p class="alert alert-danger" *ngIf="!this.juegoService.form.valid">
         Por favor complete todos los campos
       </p>
