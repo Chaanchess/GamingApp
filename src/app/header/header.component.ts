@@ -21,8 +21,11 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout() {
-    this.autService.logout();
-    this.router.navigate(['/inicio'])
+    if (confirm('¿Estás seguro de que deseas cerrar sesión?')) {
+      this.autService.logout();
+      this.router.navigate(['/inicio'])
+    }
+
   }
 
 }

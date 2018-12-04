@@ -10,6 +10,7 @@ import { JuegosService } from '../../servicios/juegos.service';
 export class JuegosComponent implements OnInit {
   juegoArray = [];
   showDeletedMessage: boolean;
+  shownoGamesMessage: boolean;
   searchText: string = "";
   public cargando:Boolean=false;
   constructor(private juegosService: JuegosService) {
@@ -26,6 +27,7 @@ export class JuegosComponent implements OnInit {
             ...item.payload.val()
           };
         });
+        this.shownoGamesMessage=true;
         this.cargando=false;
       });
   }
