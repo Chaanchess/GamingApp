@@ -73,7 +73,7 @@ export class AutenticacionService {
         .signInWithPopup(provider)
         .then(res => {
           resolve(res);
-          this.router.navigate(['/juegos']);
+          this.router.navigate(['/inicio']);
         })
     })
   }
