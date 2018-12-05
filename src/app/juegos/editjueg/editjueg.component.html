@@ -88,7 +88,7 @@
         </p>
       </div>
       <button id="btnAdd" class="btn btn-primary" (click)="saveEdit()" [disabled]="!this.juegoService.form.valid">Guardar cambios</button>
-      <a class="btn btn-danger" routerLink="/juegos">Cancelar</a>
+      <a class="btn btn-danger" routerLink="/juegos" (click)="clearField()">Cancelar</a>
       <p class="alert alert-danger" *ngIf="!this.juegoService.form.valid">
         Por favor complete todos los campos
       </p>

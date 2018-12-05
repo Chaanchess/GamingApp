@@ -36,6 +36,19 @@ export class EditjuegComponent implements OnInit {
     });
   }
 
+  clearField(){
+    this.juegoService.form.setValue({
+      $key: null,
+      nombre: '',
+      fecha: '',
+      descripcion: '',
+      puntuacion: '',
+      dificultad: '',
+      desarrolladora: '',
+      trailer: ''
+    });
+  }
+
 
 
 
