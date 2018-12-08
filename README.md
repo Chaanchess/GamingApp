@@ -6,11 +6,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Test my proyect
+## Test my app
 
-Access to [my page](https://chaanchess.github.io/GamingApp/) and test my proyect in real time.
+Access to [My Page](https://chaanchess.github.io/GamingApp/) and test my app in real time.
 
 ## Creator
 
-Proyect made by Francisco José Sánchez Romero
+App made by Francisco José Sánchez Romero.
 
