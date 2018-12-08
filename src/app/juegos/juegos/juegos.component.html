@@ -24,11 +24,6 @@
   <ng-container *ngFor="let juego of juegoArray; let i = index">
     <tbody>
       <tr *ngIf="filterCondition(juego)">
-        <div *ngIf="!filterCondition(juego)">
-          <div class="alert alert-primary">
-            No se ha encontrado el juego
-          </div>
-        </div>
         <td>{{ juego.nombre }}</td>
         <td>{{ juego.fecha }}</td>
         <td>{{ juego.descripcion }}</td>
