@@ -24,6 +24,11 @@
   <ng-container *ngFor="let juego of juegoArray; let i = index">
     <tbody>
       <tr *ngIf="filterCondition(juego)">
+        <div *ngIf="!filterCondition(juego)">
+          <div class="alert alert-primary">
+            No se ha encontrado el juego
+          </div>
+        </div>
         <td>{{ juego.nombre }}</td>
         <td>{{ juego.fecha }}</td>
         <td>{{ juego.descripcion }}</td>
@@ -31,7 +36,8 @@
         <td>{{ juego.dificultad }}</td>
         <td>{{ juego.desarrolladora }}</td>
         <td>
-          <a target="_blank" rel="noopener noreferrer" type="button" class="btn btn-primary" href="{{juego.trailer}}"><i style="font-size:20px" class="fa fa-youtube-play"></i></a>
+          <a target="_blank" rel="noopener noreferrer" type="button" class="btn btn-primary" href="{{juego.trailer}}"><i
+              style="font-size:20px" class="fa fa-youtube-play"></i></a>
         </td>
         <td>
           <button type="button" class="btn btn-success" routerLink="/editjueg/{{ juego.$key }}" (click)="juegosService.populateForm(juego)"><i
